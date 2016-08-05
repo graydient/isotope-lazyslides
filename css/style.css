@@ -1,0 +1,95 @@
+*, :before, :after {
+  box-sizing: border-box;
+}
+
+body {
+  background: ghostwhite;
+  font-family: helvetica, arial;
+}
+
+.isotope-wrapper {
+  position: relative;
+  width: 90%;
+  max-width: 100%;
+  min-width: 10%;
+  margin: auto;
+}
+.isotope-wrapper h1 {
+  color: tomato;
+}
+
+.isotope-box {
+  position: relative;
+  width: 100%;
+}
+
+.isotope-toolbar {
+  background: tomato;
+  padding: 10px;
+  margin: 10px;
+  color: #eee;
+}
+
+.isotope-toolbar p {
+  border-top: 1px solid #fff;
+  padding-top: 15px;
+}
+
+.isotope-toolbar a {
+  color: #fff;
+}
+
+.isotope-item {
+  position: relative;
+  width: 31%;
+  margin: 1%;
+}
+
+.isotope-item:before {
+  content: '';
+  display: inline-block;
+  padding-top: 60%;
+}
+
+.item-portrait:before {
+  padding-top: 165%;
+}
+
+.isotope-item img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.lazyload {
+  background: #f7f7f7;
+}
+
+.lazyloading {
+  background: #f7f7f7 url(//afarkas.github.io/lazysizes/assets/imgs/loader.gif) no-repeat center;
+  min-height: 60px;
+}
+
+.twitter-timeline {
+  position: static;
+  visibility: visible;
+  display: inline-block;
+  width: 520px;
+  height: 314px !important;
+  padding: 0px;
+  border: none;
+  max-width: 100%;
+  min-width: 180px;
+  margin-top: -50% !important;
+  margin-bottom: 0px;
+  min-height: 200px;
+  overflow: auto;
+}
+
+.instagram-media {
+  margin-top: -50% !important;
+  height: 250px !important;
+}

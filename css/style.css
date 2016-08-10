@@ -1,15 +1,10 @@
-*, :before, :after {
-  box-sizing: border-box;
-}
 
-body {
-  background: ghostwhite;
-  font-family: helvetica, arial;
-}
 
 .isotope-wrapper {
+  background: ghostwhite;
+  font-family: helvetica, arial;
   position: relative;
-  width: 90%;
+  width: 100%;
   max-width: 100%;
   min-width: 10%;
   margin: auto;

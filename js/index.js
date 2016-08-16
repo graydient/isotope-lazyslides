@@ -27,4 +27,18 @@ $( document ).ready(function() {
 					filter();
 	});	
 
+	// instafeed
+	  var userFeed = new Instafeed({
+	    get: 'user',
+	    userId: '2282195281',
+	    clientId: 'c8f0be79ea7c47f7bdac9a80c33c00f5',
+	    accessToken: '2282195281.1677ed0.df2ba73d081c400b9347fea08e15102d',
+	    resolution: 'standard_resolution',
+	    template: '<div class="isotope-item"><a href="{{link}}" target="_blank" id="{{id}}"><img src="{{image}}" /></a></div>',
+	    sortBy: 'most-recent',
+	    limit: 4,
+	    links: false
+	  });
+	  userFeed.run();
+
 });

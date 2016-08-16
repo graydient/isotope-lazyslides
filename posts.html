@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html >
+  <head>
+    <meta charset="UTF-8">
+    <title>Graydient Creative lazySizes + isotope</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/general_foundicons.css">
+    <link rel="stylesheet" href="css/posts.css">
+
+	<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+	<script   src="https://code.jquery.com/jquery-1.9.1.min.js"   integrity="sha256-wS9gmOZBqsqWxgIVgA8Y9WcQOa7PgSIX+rPA0VL2rbQ="   crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	<script type="text/javascript" src="js/angular.min.js"> </script>
+	<script type="text/javascript" src="js/angular-sanitize.min.js"> </script>
+	<script type="text/javascript" src="js/posts.js"> </script>
+
+</head>
+<body ng-app="RSS_Demo" ng-controller="AppCtrl">
+
+
+
+
+<div ng-view style="margin-top: 40px;"></div>
+
+<div id="veil" ng-show="isLoading"></div>
+<div id="feedLoading" ng-show="isLoading">Loading...</div>
+
+
+<script type="text/ng-template" id="list_view.html">
+<div ng-controller="ListCtrl">
+	<h1 ng-cloak><a href="{{feed_result.link}}" target="_blank" ng-bind-html="feed_result.title"></a></h1>
+
+	<p ng-cloak>{{feed_result.description}}</p>
+
+	<div class="well well-small" ng-repeat="entry in feed_result.entries" list-done="layoutDone()" ng-cloak>
+		<a href="" ng-click="viewDetail(entry)" class="pull-left rssThumb" title="view detail" data-toggle="tooltip"><img ng-repeat="thumbnail in mediaOne(entry).thumbnails" ng-src="{{thumbnail.url}}"></a>
+
+		<a href="{{entry.link}}" target="_blank" title="view at {{feed_result.viewAt}}" data-toggle="tooltip" data-placement="left" class="btn btn-primary pull-right" style="margin: 0 0 5px 10px">View at...</a>
+
+		<h4 title="view detail" data-toggle="tooltip">{{entry.title}}</h4>
+
+		<p ng-bind-html="entry.contentSnippet"></p>
+
+		<p class="muted">
+			Posted: {{entry.publishedDate}} -
+			<span class="label label-info" ng-repeat="category in entry.categories">{{category}}</span>
+		</p>
+	</div>
+</div>
+</script>
+
+
+<script type="text/ng-template" id="detail_view.html">
+<div ng-controller="DetailCtrl">
+	<h3 class="lead">{{currEntry.title}}</h3>
+
+	<div id="vidTagAlert" class="alert alert-error">
+		<button type="button" class="close" id="btnTagAlert">&times;</button>
+		<strong>FAIL!</strong> The HTML5 &lt;video&gt; tag does not support .mp4 videos in Chrome and Firefox. Use Internet Explorer or Safari to watch these videos.
+	</div>
+
+	<video id="vPlayer" src="{{mediaOne(currEntry).url}}" controls autoplay ng-show="hasVideo(currEntry)"></video>
+
+	<div class="well well-small">
+		<p ng-bind-html="currEntry.content"></p>
+
+		<p class="muted">Posted: {{currEntry.publishedDate}} - <a href="{{currEntry.link}}" target="_blank" class="text-info" ng-click="videoStop()">view at {{feed_result.viewAt}}</a></p>
+	</div>
+</div>
+</script>
+
+
+<script type="text/ng-template" id="choose_feed.html">
+<div ng-controller="FeedCtrl">
+	<h1>Choose RSS Feed</h1>
+
+	<div class="changeList">
+		<div class="input-prepend">
+			<a ng-click="addFeed()" class="btn btn-primary add-on"><i class="foundicon-plus"></i> Add feed</a>
+			<input type="text" id="inputFeed" ng-model="newFeedUrl" placeholder="new feed url" on-enter="addFeed()">
+		</div>
+
+		<div class="btn-group btn-block" ng-repeat="feed in feedList" list-done="layoutDone()">
+			<a ng-click="chooseFeed($index)" class="btn">{{feed | strip_http}}</a>
+			<a ng-click="removeFeed($index)" class="btn btn-danger" title="Remove feed" data-toggle="tooltip"><i class="foundicon-remove"></i></a>
+		</div>
+	</div>
+</div>
+</script>
+
+
+
+
+
+
+
+
+
+  </body>
+</html>

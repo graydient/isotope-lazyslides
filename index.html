@@ -8,30 +8,22 @@
 <body>
 
 <div class="isotope-wrapper">
-  <!--
-	<form class="isotope-toolbar">
-    
-		<label><input type="radio" data-type="*" checked="" name="isotope-filter"> all</label>
-		<label><input type="radio" data-type="people" name="isotope-filter"> people</label>
-		<label><input type="radio" data-type="nature" name="isotope-filter"> nature</label>
-		<label><input type="radio" data-type="animals" name="isotope-filter"> animals</label>
-    <p><a href="https://github.com/aFarkas/lazysizes" target="_blank">lazySizes</a> integrates seamlessly with <a href="http://isotope.metafizzy.co/" target="_blank">isotope/masonry</a></p>
-	</form>
--->
+
   <h1> Graydient Isotope + Lazyslides </h1>
 
+            	<div id="feed"></div>
 
+<div id="instafeed"> </div>
 	<div class="isotope-box">
 
-		<div ></div>
 
-		<div class="isotope-item" data-type="nature" id="instafeed">
 
-		</div>
+		
+
+
 		<div class="isotope-item" data-type="people">
-            <a class="twitter-timeline"  href="https://twitter.com/experienceGray" data-widget-id="707693560204648448">Tweets by @experienceGray</a>
+          	 <a class="twitter-timeline"  href="https://twitter.com/experienceGray" data-widget-id="707693560204648448">Tweets by @experienceGray</a>
             <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-          
 
 		</div>
 
@@ -220,22 +212,6 @@
 	<script src="js/lazysizes.min.js"></script>
 	<script src="js/instafeed.min.js"></script>
 	<script src="js/index.js"></script>
-
-<script type="text/javascript">
-  var userFeed = new Instafeed({
-    get: 'user',
-    userId: '2282195281',
-    clientId: 'c8f0be79ea7c47f7bdac9a80c33c00f5',
-    accessToken: '2282195281.1677ed0.df2ba73d081c400b9347fea08e15102d',
-    resolution: 'standard_resolution',
-    template: '<a href="{{link}}" target="_blank" id="{{id}}"><img src="{{image}}" /></a>',
-    sortBy: 'most-recent',
-    limit: 4,
-    links: false
-  });
-  userFeed.run();
-</script>
-
-
+	<script src="js/feed.js"></script>
   </body>
 </html>
